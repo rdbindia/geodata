@@ -18,5 +18,5 @@ Route::any('/heatMap', function () {
     return view('heatMap');
 });
 
-Route::any('/GeoDataApiController', [GeoDataApiController::class,'index']);
-Route::any('/polygon', [GeoDataApiController::class,'polygon']);
+Route::any('/GeoDataApiController', [GeoDataApiController::class, 'index']);
+Route::any('/polygon', 'GeoDataApiController@polygon');

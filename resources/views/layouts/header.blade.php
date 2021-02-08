@@ -13,6 +13,7 @@
 
         <link rel="stylesheet" href="{{ url('assets/css/heat_map.css') }}">
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css"/>
 
     @show
 </head>
