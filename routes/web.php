@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::any('/heatMap', function () {
+Route::any('/', function () {
     return view('heatMap');
 });
 
