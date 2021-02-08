@@ -39,6 +39,9 @@
             },
             complete: function (resultData) {
                 $("#loader").hide();
+            },
+            error: function (request, status, error) {
+                alert(request.responseText);
             }
         });
 
