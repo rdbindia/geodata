@@ -19,6 +19,7 @@ class GeoDataApiController extends Controller
         $polygon_coordinate_array = [];
         $new_coordinate_array = [];
         $getCount = 0;
+        $arr['data']= [];
 
         // Iterate over every line of the file
         while (($raw_string = fgetcsv($handle, 1000, ",")) !== FALSE) {

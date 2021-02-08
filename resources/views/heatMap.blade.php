@@ -133,11 +133,9 @@
                 editableLayers.addLayer(layer);
             });
             map.on('draw:created', function (e) {
-                alert("here");
                 var layer = e.layer;
 
-                var shape = layer.toGeoJSON()
-                console.log(shape['geometry']['coordinates']);
+                var shape = layer.toGeoJSON();
                 var shape_for_db = JSON.stringify(shape);
 
                 $.ajaxSetup({
