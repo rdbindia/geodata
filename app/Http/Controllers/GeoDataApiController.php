@@ -15,7 +15,6 @@ class GeoDataApiController extends Controller
         // Read a CSV file
         $handle = fopen($asset_path, "r");
         fgetcsv($handle);
-        $lineNumber = 1;
         $arr = [];
         $stored_card_number = [];
 
@@ -30,32 +29,18 @@ class GeoDataApiController extends Controller
             $geo_arr['geo_latitude'] = $latitude;
             $geo_arr['geo_longitude'] = $longitude;
 
-//            dd($getCount);
-            /*  if (in_array($geo_arr, $stored_card_number)) {
-                  $geo_arr['count'] = $getCount;
-              }*/
             $getCount = $this->getCoordinateCount($stored_card_number, $geo_arr);
             $stored_card_number[] = $geo_arr;
-//            dump($getCount);
             $geo_arr['count'] = $getCount;
             $arr[$geoname_id] = $geo_arr;
 
-            // Parse the raw csv string: "1, a, b, c"
-
-            // into an array: ['1', 'a', 'b', 'c']
-            // And do what you need to do with every line
-
-            // Increase the current line
-            $lineNumber++;
         }
-
-//        echo $lineNumber;
 
         fclose($handle);
         return json_encode($arr);
     }
 
-    private function getCoordinateCount($raw_string, array $geo_arr)
+    private function getCoordinateCount($raw_string, array $geo_arr): int
     {
         $found = array();
         foreach ($raw_string as $aKey => $aVal) {
@@ -69,8 +54,6 @@ class GeoDataApiController extends Controller
                 $found[$aKey] = $aVal;
             }
         }
-        $count = count($found) + 1;
-
-        return $count;
+        return count($found) + 1;
     }
 }
