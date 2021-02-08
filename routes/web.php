@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::any('/heatMap', function () {
+    return view('heatMap');
 });
 
 Route::any('/GeoDataApiController', [GeoDataApiController::class,'index']);
+Route::any('/polygon', [GeoDataApiController::class,'polygon']);

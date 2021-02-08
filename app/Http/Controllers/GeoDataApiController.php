@@ -18,21 +18,19 @@ class GeoDataApiController extends Controller
         $arr = [];
         $stored_card_number = [];
 
-
         // Iterate over every line of the file
         while (($raw_string = fgetcsv($handle, 1000, ",")) !== FALSE) {
 
             $geo_arr = [];
-            $geoname_id = $raw_string[1];
-            $latitude = $raw_string[2];
-            $longitude = $raw_string[3];
-            $geo_arr['geo_latitude'] = $latitude;
-            $geo_arr['geo_longitude'] = $longitude;
+            $latitude = $raw_string[0];
+            $longitude = $raw_string[1];
+            $geo_arr['latitude'] = $latitude;
+            $geo_arr['longitude'] = $longitude;
 
             $getCount = $this->getCoordinateCount($stored_card_number, $geo_arr);
             $stored_card_number[] = $geo_arr;
             $geo_arr['count'] = $getCount;
-            $arr[$geoname_id] = $geo_arr;
+            $arr[] = $geo_arr;
 
         }
 
