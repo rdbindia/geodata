@@ -5,7 +5,7 @@
 
 <!-- Image loader -->
 <div id='loader' style='display: none;'>
-    <img src='{{ url('assets/images/reload.gif') }}' width='100%' height='100%'>
+    <img src='{{ url('assets/images/reload.gif',[], true) }}' width='100%' height='100%'>
 </div>
 <!-- Image loader -->
 <div id="map"></div>
