@@ -29,6 +29,7 @@ class GeoDataApiController extends Controller
             $geo_arr['latitude'] = $latitude;
             $geo_arr['longitude'] = $longitude;
 
+            // When bounding box is set
             if ($polygon_array) {
                 $contains = $this->contains($geo_arr, $polygon_array);
                 if ($contains) {
@@ -37,6 +38,7 @@ class GeoDataApiController extends Controller
                     $arr['data'][] = $geo_arr;
                 }
             } else {
+                // When no bounding box is set
                 $getCount = $this->getCoordinateCount($new_coordinate_array, $geo_arr);
                 $geo_arr['count'] = $getCount;
                 $new_coordinate_array[] = $geo_arr;
