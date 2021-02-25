@@ -47,7 +47,6 @@
 
         function loadMapData(resultData) {
             var result = {
-                max: 8,
                 data: resultData.data
             };
 
@@ -82,6 +81,7 @@
             });
 
             heatmapLayer.setData(result);
+            // var marker = L.marker(cfg).addTo(map);
 
             layer = heatmapLayer;
 
@@ -122,21 +122,18 @@
             var editableLayers = new L.FeatureGroup();
             map.addLayer(editableLayers);
 
+
             map.on('draw:created', function (e) {
-                var type = e.layerType,
-                    layer = e.layer;
+                var layer = e.layer;
+                var type = e.layerType;
 
                 if (type === 'marker') {
                     layer.bindPopup('A popup!');
                 }
 
                 editableLayers.addLayer(layer);
-            });
-            map.on('draw:created', function (e) {
-                var layer = e.layer;
 
                 var shape = layer.toGeoJSON();
-                var shape_for_db = JSON.stringify(shape);
 
                 $.ajaxSetup({
                     headers: {
