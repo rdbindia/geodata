@@ -20,3 +20,4 @@ Route::any('/', function () {
 
 Route::any('/GeoDataApiController', [GeoDataApiController::class, 'index']);
 Route::any('/polygon', 'GeoDataApiController@polygon');
+Route::get('/factorial','Factorial@index');

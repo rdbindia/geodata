@@ -11,8 +11,8 @@
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
-        <link rel="stylesheet" href="{{ url('assets/css/heat_map.css',[],true) }}">
-        <link rel="stylesheet" href="{{ url('assets/css/leaflet.css',[],true) }}"/>
+        <link rel="stylesheet" href="{{ url('assets/css/heat_map.css',[],false) }}">
+        <link rel="stylesheet" href="{{ url('assets/css/leaflet.css',[],false) }}"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css"/>
 
     @show
