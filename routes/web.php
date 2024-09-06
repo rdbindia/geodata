@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Factorial;
 use App\Http\Controllers\GeoDataApiController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,7 @@ Route::any('/', function () {
     return view('heatMap');
 });
 
-Route::any('/GeoDataApiController', [GeoDataApiController::class, 'index']);
-Route::any('/polygon', 'GeoDataApiController@polygon');
-Route::get('/factorial','Factorial@index');
+Route::any('/GeoDataApiController', [GeoDataApiController::class, 'readFileData']);
+Route::any('/polygon', [GeoDataApiController::class, 'polygon']);
+Route::get('/factorial',[Factorial::class,'index']);
+
